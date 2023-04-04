@@ -4,10 +4,13 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.Setter;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
 @Getter
+@Setter
 @Entity
 @Table(name = "cliente")
 public class Cliente extends EntidadeBase{
@@ -22,5 +25,13 @@ public class Cliente extends EntidadeBase{
     private LocalDateTime dataAtualizacao;
 
     public Cliente() {
+    }
+
+    public void registarDataCadastro() {
+        this.dataCadastro= LocalDateTime.now();
+    }
+
+    public void registrarDataAtualizacao() {
+        this.dataAtualizacao = LocalDateTime.now();
     }
 }
