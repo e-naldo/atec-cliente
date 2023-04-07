@@ -27,6 +27,21 @@ public class Cliente extends EntidadeBase{
     public Cliente() {
     }
 
+    public Cliente(String nome, String documento, String email, String telefone) {
+        this.nome = nome;
+        this.documento = documento;
+        this.email = email;
+        this.telefone = telefone;
+    }
+
+    public Cliente(Long id, String nome, String documento, String email, String telefone) {
+        super(id);
+        this.nome = nome;
+        this.documento = documento;
+        this.email = email;
+        this.telefone = telefone;
+    }
+
     public void registarDataCadastro() {
         this.dataCadastro= LocalDateTime.now();
     }
