@@ -3,11 +3,11 @@ package dev.atec.cliente.controller;
 import dev.atec.cliente.dto.ClienteAtualizacaoDto;
 import dev.atec.cliente.dto.ClienteCadastroDto;
 import dev.atec.cliente.dto.ClienteDetalhesDto;
+import dev.atec.cliente.dto.ClienteDadosBasicosProjection;
 import dev.atec.cliente.entity.Cliente;
 import dev.atec.cliente.mapper.ClienteMapper;
 import dev.atec.cliente.service.ClienteService;
 import jakarta.validation.Valid;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -63,5 +63,12 @@ public class ClienteController {
         service.excluirPorId(id);
 
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("resumo")
+    public ResponseEntity<List<ClienteDadosBasicosProjection>> listarTodosClienteResumo(){
+        List<ClienteDadosBasicosProjection> clientes = service.buscarTodosClienteDadosBasicos();
+
+        return ResponseEntity.ok(clientes);
     }
 }

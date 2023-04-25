@@ -1,5 +1,6 @@
 package dev.atec.cliente.service;
 
+import dev.atec.cliente.dto.ClienteDadosBasicosProjection;
 import dev.atec.cliente.entity.Cliente;
 import dev.atec.cliente.repository.ClienteRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -51,5 +52,9 @@ public class ClienteService implements GenericService<Cliente> {
     @Override
     public void excluirPorId(Long id) {
         clienteRepository.deleteById(id);
+    }
+
+    public List<ClienteDadosBasicosProjection> buscarTodosClienteDadosBasicos() {
+        return clienteRepository.getAllClienteDadosBasicos();
     }
 }
